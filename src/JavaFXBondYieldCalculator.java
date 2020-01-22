@@ -1,11 +1,13 @@
 import javafx.application.Application;
 
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -13,36 +15,19 @@ import javafx.stage.Stage;
 
 
 
-public class Main extends Application{
-
-    Button button;
+public class JavaFXBondYieldCalculator extends Application{
     public static void main(String[] args){
         launch(args);
     }
 
     @Override
-    public void start(Stage stage) throws Exception{
-        stage.setTitle("Bond-Yield Calculator"); //Setting title to the Stage
-
-        TabPane tabPane = new TabPane();
-        tabPane.setMinSize(700,500);
-        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-        Tab bondTab = new Tab();
-        bondTab.setText("Bond Calculator");
-        Tab yieldTab = new Tab();
-        yieldTab.setText("Yield Calculator");
-
-        GridPane BondGridPane = getBondPane();
-        GridPane YieldGridPane = getYieldPane();
-
-        bondTab.setContent(BondGridPane);
-        yieldTab.setContent(YieldGridPane);
-        tabPane.getTabs().add(bondTab);
-        tabPane.getTabs().add(yieldTab);
-
-        Scene scene = new Scene(tabPane); //Creating a scene object
-        stage.setScene(scene); //Adding scene to the stage
-        stage.show(); //Displaying the contents of the stage
+    public void start(Stage primaryStage) throws Exception{
+        primaryStage.setTitle("Bond-Yield Calculator"); //Setting title to the Stage
+        Pane myPane = (Pane)FXMLLoader.load(getClass().getResource("fxml_calculator.fxml"));
+        Scene scene = new Scene(myPane);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
+        primaryStage.show();
     }
     private static GridPane getBondPane(){
         GridPane BondGridPane = new GridPane();

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="javafx.BondYieldCalculator.bondTab.BondTabController"
+          alignment="center" hgap="5" vgap="5">
+
+    <Label text= "Bond Price Calculator" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+    <Text text="Coupon (decimal value)" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="CouponTextField" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Text text="Years" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="YearsTextField" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <Text text="Face" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <TextField fx:id="FaceTextField" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+    <Text text="Rate (decimal value)" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+    <TextField fx:id="RateTextField" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+    <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="9">
+        <Button text="Calculate"
+                onAction="#calculateBondPrice"/>
+        <Button text="Clear" onAction="#clearInputs"/>
+    </HBox>
+    <Text text="Bond Price" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+    <TextField fx:id="BondPriceTextField" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+</GridPane>
+

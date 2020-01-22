@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+
+<TabPane xmlns:fx="http://javafx.com/fxml" tabClosingPolicy="UNAVAILABLE">
+    <tabs>
+        <Tab fx:id="bondTab" text="Bond Calculator">
+            <fx:include source="bondTab/bondTab.fxml"/>
+        </Tab>
+        <Tab fx:id="yieldTab" text="Yield Calculator">
+            <fx:include source="yieldTab/yieldTab.fxml"/>
+        </Tab>
+    </tabs>
+</TabPane>
