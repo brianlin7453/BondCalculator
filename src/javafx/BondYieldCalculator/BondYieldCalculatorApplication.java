@@ -12,6 +12,7 @@ public class BondYieldCalculatorApplication extends Application {
     public void start(Stage primaryStage)throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("bondyield_calculator.fxml"));
 
+        //This is for the error message in case the user inputs non-numerical inputs
         AppMessageDialogSingleton messageDialog = AppMessageDialogSingleton.getSingleton();
         messageDialog.init(primaryStage);
 

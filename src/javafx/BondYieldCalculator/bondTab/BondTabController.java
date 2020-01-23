@@ -9,16 +9,12 @@ public class BondTabController {
     // The reference of inputText will be injected by the FXML loader
     private TextField CouponTextField;
     @FXML
-    // The reference of inputText will be injected by the FXML loader
     private TextField YearsTextField;
     @FXML
-    // The reference of inputText will be injected by the FXML loader
     private TextField FaceTextField;
     @FXML
-    // The reference of inputText will be injected by the FXML loader
     private TextField RateTextField;
     @FXML
-    // The reference of inputText will be injected by the FXML loader
     private TextField BondPriceTextField;
 
     @FXML
@@ -32,12 +28,13 @@ public class BondTabController {
 
     @FXML
     private void calculateBondPrice() {
+        long startTime = System.nanoTime();
         String message = "Invalid Input(s):";
         double coupon = 0;
         double years = 0;
         double face = 0;
         double rate = 0;
-        boolean isValid = true;
+        boolean isValid = true; //Check for invalid inputs
         try{
             coupon = Double.parseDouble(CouponTextField.getText());
         }
@@ -63,10 +60,10 @@ public class BondTabController {
             isValid = false;
             message += "\n RATE";
         }
-        if (!isValid) {
+        if (!isValid) { //Show invalid input message if isValid=false
             AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
             dialog.show("Invalid Input Message", message);
-        } else {
+        } else { //If all input is valid then calculate
             double resultPrice = 0.0;
             for (int year = 1; year <= years; year++) {
                 double cashFlow = coupon * face;
@@ -77,5 +74,8 @@ public class BondTabController {
             DecimalFormat decFor = new DecimalFormat("0.0000000");
             BondPriceTextField.setText(decFor.format(resultPrice));
         }
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println(duration);
     }
 }
